@@ -1,13 +1,18 @@
 import random
 
+import matplotlib.pyplot as plt
+
 from courses.dynamical_models.matrix import Matrix
+from courses.dynamical_models.simulation import Simulation
 
 
 def main():
     exercise_1()
+    exercise_2()
 
 
 def exercise_1():
+    print('###### EXERCISE 1. ######')
     row = 5
     column = 5
 
@@ -28,6 +33,22 @@ def exercise_1():
     print('\n--- Transpose matrix ---')
     matrix_transpose = matrix.transpose()
     print('Transposed matrix:', matrix_transpose)
+
+
+def exercise_2():
+    print('\n\n###### EXERCISE 2. ######')
+    sensor_error = 0.3
+    dt = 1.0
+    simulation = Simulation(sensor_error, dt)
+    timespan = 40
+    simulation.run(timespan)
+    # Visualize simulation results
+    plt.plot(simulation.t, simulation.velocities)
+    plt.show()
+    # Call member functions
+    print("Distance travelled:", simulation.distance_traveled(), 'm')
+    print("Average velocity:", simulation.average_velocity(), 'm/s')
+    print("Average acceleration:", simulation.average_acceleration(), 'm/s^2')
 
 
 def generate_matrix(column, row):
