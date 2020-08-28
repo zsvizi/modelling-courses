@@ -23,4 +23,5 @@ class Simulation:
         return self.distance_traveled() / np.max(self.t)
 
     def average_acceleration(self):
-        return np.sum((np.diff(self.velocities) / self.dt) * self.dt) / np.max(self.t)
+        acc = np.diff(self.velocities) / self.dt
+        return np.sum(acc * self.dt) / np.max(self.t)
