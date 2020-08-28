@@ -27,7 +27,7 @@ class Simulation:
 
 
 if __name__ == '__main__':
-    # Create Simualtion instance
+    # Create Simulation instance
     sim = Simulation()
 
     # Run simulation
