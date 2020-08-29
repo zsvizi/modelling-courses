@@ -32,6 +32,7 @@ if __name__ == '__main__':
 
     # Run simulation
     sim.run(100)
+    # Plot last state
     plt.imshow(sim.actual_state, cmap='Blues')
     plt.colorbar()
     plt.show()
