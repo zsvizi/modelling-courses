@@ -1,8 +1,6 @@
-import random
-
 import matplotlib.pyplot as plt
 
-from courses.dynamical_models.matrix import Matrix
+from courses.dynamical_models.circles import Circle, CircleCoord
 from courses.dynamical_models.simulation import Simulation
 
 
@@ -13,26 +11,28 @@ def main():
 
 def exercise_1():
     print('###### EXERCISE 1. ######')
-    row = 5
-    column = 5
 
-    print('--- Create Matrix object ---')
-    matrix_list = generate_matrix(column, row)
-    print("Matrix_list:", matrix_list)
-    matrix = Matrix(matrix_list)
-    print("Matrix object", matrix)
+    print('--- Create Circle object with r=3 ---')
+    circle = Circle(3)
+    print("Diameter:", circle.diameter())
+    print("Circumference:", circle.circumference())
+    print("Area:", circle.area())
 
-    print('\n--- Add two matrices ---')
-    matrix_list_2 = generate_matrix(column, row)
-    matrix_2 = Matrix(matrix_list_2)
-    matrix_sum = matrix + matrix_2
-    print('Matrix_1:', matrix)
-    print('Matrix_2', matrix_2)
-    print('Sum matrix:', matrix_sum)
+    print('\n--- Create CircleCoord object with center=(0,0), r=2 ---')
+    circle_coord = CircleCoord((0, 0), 2)
+    print('Diameter:', circle_coord.diameter())
+    print('Area:', circle_coord.area())
+    print('Contains (2,0)?', circle_coord.contains((2, 0)))
+    print('Contains (1,0)?', circle_coord.contains((1, 0)))
+    print('Contains (3,0)?', circle_coord.contains((3, 0)))
 
-    print('\n--- Transpose matrix ---')
-    matrix_transpose = matrix.transpose()
-    print('Transposed matrix:', matrix_transpose)
+    print('\n--- Create CircleCoord object with center=(2,2), r=1 ---')
+    other_circlecoord = CircleCoord((2, 2), 1)
+    print('Intersects CircleCoord with center=(2,2), r=1?', circle_coord.intersects(other_circlecoord))
+
+    print('\n--- Create CircleCoord object with center=(3,3), r=1 ---')
+    other_circlecoord_2 = CircleCoord((3, 3), 1)
+    print('Intersects CircleCoord with center=(3,3), r=1?', circle_coord.intersects(other_circlecoord_2))
 
 
 def exercise_2():
@@ -49,16 +49,6 @@ def exercise_2():
     print("Distance travelled:", simulation.distance_traveled(), 'm')
     print("Average velocity:", simulation.average_velocity(), 'm/s')
     print("Average acceleration:", simulation.average_acceleration(), 'm/s^2')
-
-
-def generate_matrix(column, row):
-    matrix_list = []
-    for i in range(row):
-        matrix_row = []
-        for j in range(column):
-            matrix_row.append(random.random())
-        matrix_list.append(matrix_row)
-    return matrix_list
 
 
 if __name__ == '__main__':
