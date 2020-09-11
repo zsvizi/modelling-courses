@@ -4,17 +4,21 @@ import matplotlib.pyplot as plt
 def main():
     exercise_1()
     exercise_2()
+    exercise_3()
+    exercise_4()
 
 
 def exercise_1():
     print('###### EXERCISE 1. ######')
-
     print('--- Create Circle object with r=3 ---')
     pass
     print("Diameter:", None)
     print("Circumference:", None)
     print("Area:", None)
 
+
+def exercise_2():
+    print('\n\n###### EXERCISE 2. ######')
     print('\n--- Create CircleCoord object with center=(0,0), r=2 ---')
     pass
     print('Diameter:', None)
@@ -32,8 +36,19 @@ def exercise_1():
     print('Intersects CircleCoord with center=(3,3), r=1?', None)
 
 
-def exercise_2():
-    print('\n\n###### EXERCISE 2. ######')
+def exercise_3():
+    print('\n\n###### EXERCISE 3. ######')
+    print('\n--- Create Matrix "a" from [[1,2,3],[4,5,6]] ---')
+    pass
+    print('\n--- Create Matrix "b" from [[0,-1,2],[-1,-3,-9]] ---')
+    pass
+    print('\n--- Add Matrix "b" to Matrix "a" ---')
+    pass
+    print('Sum of Matrix "a" and Matrix "b":', None)
+
+
+def exercise_4():
+    print('\n\n###### EXERCISE 4. ######')
     # Create Sensor object with sensor_error=0.3 and dt=1.0
     sensor_error = 0.3
     dt = 1.0
